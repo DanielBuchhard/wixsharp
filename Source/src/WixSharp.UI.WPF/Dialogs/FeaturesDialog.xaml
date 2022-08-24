@@ -11,156 +11,158 @@
     DialogTitle="[ProductName] Setup"
     mc:Ignorable="d">
 
-    <Grid x:Name="Root">
-        <Grid.Resources>
-            <Style x:Key="Link" TargetType="Button">
-                <Setter Property="Cursor" Value="Hand" />
-                <Setter Property="Foreground" Value="Blue" />
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <TextBlock
+   <Grid x:Name="Root">
+      <Grid.Resources>
+         <Style x:Key="Link" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+               <Setter.Value>
+                  <ControlTemplate TargetType="Button">
+                     <TextBlock
                                 Background="{TemplateBinding Background}"
                                 Text="{TemplateBinding Content}"
                                 TextDecorations="Underline" />
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="Foreground" Value="Red" />
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="53" />
-        </Grid.RowDefinitions>
-        <Border
+                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                           <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                     </ControlTemplate.Triggers>
+                  </ControlTemplate>
+               </Setter.Value>
+            </Setter>
+         </Style>
+      </Grid.Resources>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="60" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="53" />
+      </Grid.RowDefinitions>
+      <Border
             Margin="-1,-1,-1,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="White"
             BorderBrush="Gray"
             BorderThickness="1">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="80" />
-                </Grid.ColumnDefinitions>
+         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
 
-                <Image
+            <Image
                     x:Name="Banner"
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" />
-                <StackPanel Margin="9">
-                    <TextBlock
+            <StackPanel Margin="9">
+               <TextBlock
                         Grid.Column="0"
                         Background="White"
                         FontSize="12"
                         FontWeight="Bold">
                         [CustomizeDlgTitle]
-                    </TextBlock>
-                    <TextBlock
+               </TextBlock>
+               <TextBlock
                         x:Name="DialogDescription"
                         Margin="17,5"
                         VerticalAlignment="Stretch"
                         Background="White"
                         TextWrapping="WrapWithOverflow">
                         [CustomizeDlgDescription]
-                    </TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
+               </TextBlock>
+            </StackPanel>
+         </Grid>
+      </Border>
 
-        <Grid Grid.Row="1" Margin="20,10,20,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="186" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock
+      <Grid Grid.Row="1" Margin="20,10,20,10">
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="186" />
+         </Grid.ColumnDefinitions>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+         </Grid.RowDefinitions>
+         <TextBlock
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="0,0,0,10"
                 TextWrapping="WrapWithOverflow">
                 [CustomizeDlgText]
-            </TextBlock>
-            <TreeView
+         </TextBlock>
+         <TreeView
                 x:Name="FeaturesTree"
                 Grid.Row="1"
                 Grid.Column="0"
                 ItemsSource="{Binding RootNodes}">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Nodes}">
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding Checked}" IsEnabled="{Binding IsEditable}" />
-                            <TextBlock Margin="5, 0" VerticalAlignment="Center" Text="{Binding Name}" />
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
-            <Border
+            <TreeView.ItemTemplate>
+               <HierarchicalDataTemplate ItemsSource="{Binding Nodes}">
+                  <StackPanel Orientation="Horizontal">
+                     <CheckBox IsChecked="{Binding Checked}" IsEnabled="{Binding IsEditable}" />
+                     <TextBlock Margin="5, 0" VerticalAlignment="Center" Text="{Binding Name}" />
+                  </StackPanel>
+               </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+         </TreeView>
+         <Border
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="10,0,0,0"
                 BorderBrush="Black"
                 BorderThickness="1">
-                <TextBlock x:Name="SelectedNodeDescription" Margin="10" />
-            </Border>
-            <Button
+            <TextBlock x:Name="SelectedNodeDescription" Margin="10" />
+         </Border>
+         <Button
                 x:Name="Reset"
                 Grid.Row="2"
                 Margin="0,10,0,0"
                 HorizontalAlignment="Left"
                 Style="{StaticResource Link}">
-                [CustomizeDlgReset]
-            </Button>
-        </Grid>
+            [CustomizeDlgReset]
+         </Button>
+      </Grid>
 
-        <Border
+      <Border
             Grid.Row="2"
             Margin="-1,0,-1,-1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderBrush="Gray"
             BorderThickness="1">
-            <StackPanel
+         <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <Separator Width="10" Opacity="0" />
-                <Button
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoPrev"
                     Height="23"
                     MinWidth="73">
-                    [WixUIBack]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-                <Button
+               [WixUIBack]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoNext"
                     Height="23"
-                    MinWidth="73">
-                    [WixUINext]
-                </Button>
-                <Separator Width="20" Opacity="0" />
-                <Button
+                    MinWidth="73"
+                    IsDefault="True">
+               [WixUINext]
+            </Button>
+            <Separator Width="20" Opacity="0" />
+            <Button
                     x:Name="Cancel"
                     Height="23"
-                    MinWidth="73">
-                    [WixUICancel]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-            </StackPanel>
-        </Border>
-    </Grid>
+                    MinWidth="73"
+                    IsCancel="True">
+               [WixUICancel]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+         </StackPanel>
+      </Border>
+   </Grid>
 </wixsharp:WpfDialog>

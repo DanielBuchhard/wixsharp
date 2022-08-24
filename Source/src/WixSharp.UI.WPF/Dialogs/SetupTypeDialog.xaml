@@ -9,74 +9,74 @@
     d:DesignWidth="512"
     DialogTitle="[ProductName] Setup"
     mc:Ignorable="d">
-    <Grid x:Name="Root">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="53" />
-        </Grid.RowDefinitions>
-        <Border
+   <Grid x:Name="Root">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="60" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="53" />
+      </Grid.RowDefinitions>
+      <Border
             Margin="-1,-1,-1,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="White"
             BorderBrush="Gray"
             BorderThickness="1">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="80" />
-                </Grid.ColumnDefinitions>
+         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
 
-                <Image
+            <Image
                     x:Name="Banner"
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" />
-                <StackPanel Margin="9">
-                    <TextBlock
+            <StackPanel Margin="9">
+               <TextBlock
                         Grid.Column="0"
                         Background="White"
                         FontSize="12"
                         FontWeight="Bold">
                         [SetupTypeDlgTitle]
-                    </TextBlock>
-                    <TextBlock
+               </TextBlock>
+               <TextBlock
                         x:Name="DialogDescription"
                         Margin="17,5"
                         VerticalAlignment="Stretch"
                         Background="White"
                         TextWrapping="WrapWithOverflow">
                         [SetupTypeDlgDescription]
-                    </TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
+               </TextBlock>
+            </StackPanel>
+         </Grid>
+      </Border>
 
-        <Grid Grid.Row="1" Margin="20,10,20,10">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Button
+      <Grid Grid.Row="1" Margin="20,10,20,10">
+         <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+         </Grid.RowDefinitions>
+         <Button
                 x:Name="DoTypical"
                 Height="23"
                 MinWidth="112"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="[SetupTypeDlgTypicalButton]" />
-            <TextBlock
+         <TextBlock
                 MinHeight="35"
                 Margin="20,35,0,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 TextWrapping="WrapWithOverflow">
                 [SetupTypeDlgTypicalText]
-            </TextBlock>
+         </TextBlock>
 
-            <Button
+         <Button
                 x:Name="DoCustom"
                 Grid.Row="1"
                 Height="23"
@@ -84,7 +84,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="[SetupTypeDlgCustomButton]" />
-            <TextBlock
+         <TextBlock
                 Grid.Row="1"
                 MinHeight="35"
                 Margin="20,35,0,0"
@@ -92,9 +92,9 @@
                 VerticalAlignment="Stretch"
                 TextWrapping="WrapWithOverflow">
                 [SetupTypeDlgCustomText]
-            </TextBlock>
+         </TextBlock>
 
-            <Button
+         <Button
                 x:Name="DoComplete"
                 Grid.Row="2"
                 Height="23"
@@ -102,7 +102,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="[SetupTypeDlgCompleteButton]" />
-            <TextBlock
+         <TextBlock
                 Grid.Row="2"
                 MinHeight="35"
                 Margin="20,35,0,0"
@@ -110,44 +110,46 @@
                 VerticalAlignment="Stretch"
                 TextWrapping="WrapWithOverflow">
                 [SetupTypeDlgCompleteText]
-            </TextBlock>
-        </Grid>
+         </TextBlock>
+      </Grid>
 
-        <Border
+      <Border
             Grid.Row="2"
             Margin="-1,0,-1,-1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderBrush="Gray"
             BorderThickness="1">
-            <StackPanel
+         <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <Separator Width="10" Opacity="0" />
-                <Button
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoPrev"
                     Height="23"
                     MinWidth="73">
-                    [WixUIBack]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-                <Button
+               [WixUIBack]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoNext"
                     Height="23"
                     IsEnabled="false"
-                    MinWidth="73">
-                    [WixUINext]
-                </Button>
-                <Separator Width="20" Opacity="0" />
-                <Button
+                    MinWidth="73"
+                    IsDefault="True">
+               [WixUINext]
+            </Button>
+            <Separator Width="20" Opacity="0" />
+            <Button
                     x:Name="Cancel"
                     Height="23"
-                    MinWidth="73">
-                    [WixUICancel]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-            </StackPanel>
-        </Border>
-    </Grid>
+                    MinWidth="73"
+                    IsCancel="True">
+               [WixUICancel]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+         </StackPanel>
+      </Border>
+   </Grid>
 </wixsharp:WpfDialog>

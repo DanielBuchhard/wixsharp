@@ -10,114 +10,116 @@
     d:DesignWidth="512"
     DialogTitle="[ProductName] Setup"
     mc:Ignorable="d">
-    <Grid x:Name="Root">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="53" />
-        </Grid.RowDefinitions>
-        <Border
+   <Grid x:Name="Root">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="60" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="53" />
+      </Grid.RowDefinitions>
+      <Border
             Margin="-1,-1,-1,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="White"
             BorderBrush="Gray"
             BorderThickness="1">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="80" />
-                </Grid.ColumnDefinitions>
+         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
 
-                <Image
+            <Image
                     x:Name="Banner"
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" />
-                <StackPanel Margin="9">
-                    <TextBlock
+            <StackPanel Margin="9">
+               <TextBlock
                         x:Name="DialogTitleLabel"
                         Grid.Column="0"
                         Background="White"
                         FontSize="12"
                         FontWeight="Bold">
                         [ProgressDlgTitleInstalling]
-                    </TextBlock>
-                </StackPanel>
-            </Grid>
-        </Border>
+               </TextBlock>
+            </StackPanel>
+         </Grid>
+      </Border>
 
-        <StackPanel Grid.Row="1" Margin="20,10">
-            <TextBlock
+      <StackPanel Grid.Row="1" Margin="20,10">
+         <TextBlock
                 x:Name="DialogDescription"
                 MinHeight="35"
                 TextWrapping="WrapWithOverflow">
                 [ProgressDlgTextInstalling]
-            </TextBlock>
-            <StackPanel
+         </TextBlock>
+         <StackPanel
                 MinHeight="30"
                 Margin="0,40,0,0"
                 Orientation="Horizontal">
-                <TextBlock x:Name="CurrentStatus">
+            <TextBlock x:Name="CurrentStatus">
                     [ProgressDlgStatusLabel]
-                </TextBlock>
-                <TextBlock x:Name="CurrentAction" TextWrapping="WrapWithOverflow" />
-            </StackPanel>
-            <ProgressBar
+            </TextBlock>
+            <TextBlock x:Name="CurrentAction" TextWrapping="WrapWithOverflow" />
+         </StackPanel>
+         <ProgressBar
                 Height="10"
                 Margin="10"
                 VerticalContentAlignment="Center"
                 Maximum="100"
                 Value="{Binding ProgressValue}" />
-            <Grid
+         <Grid
                 x:Name="UacPromptIsVisible"
                 Width="328"
                 MinHeight="35">
-                <TextBlock
+            <TextBlock
                     x:Name="UacPrompt"
                     FontStyle="Italic"
                     Foreground="#FF0967FC"
                     TextWrapping="WrapWithOverflow" />
-            </Grid>
-        </StackPanel>
+         </Grid>
+      </StackPanel>
 
-        <Border
+      <Border
             Grid.Row="2"
             Margin="-1,0,-1,-1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderBrush="Gray"
             BorderThickness="1">
-            <StackPanel
+         <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <Separator Width="10" Opacity="0" />
-                <Button
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoPrev"
                     Height="23"
                     MinWidth="73"
                     IsEnabled="False">
-                    [WixUIBack]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-                <Button
+               [WixUIBack]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+            <Button
                     x:Name="GoNext"
                     Height="23"
                     MinWidth="73"
-                    IsEnabled="False">
-                    [WixUINext]
-                </Button>
-                <Separator Width="20" Opacity="0" />
-                <Button
+                    IsEnabled="False"
+                    IsDefault="True">
+               [WixUINext]
+            </Button>
+            <Separator Width="20" Opacity="0" />
+            <Button
                     x:Name="Cancel"
                     Height="23"
-                    MinWidth="73">
-                    [WixUICancel]
-                </Button>
-                <Separator Width="10" Opacity="0" />
-            </StackPanel>
-        </Border>
-    </Grid>
+                    MinWidth="73"
+                    IsCancel="True">
+               [WixUICancel]
+            </Button>
+            <Separator Width="10" Opacity="0" />
+         </StackPanel>
+      </Border>
+   </Grid>
 </wixsharp:WpfDialog>
